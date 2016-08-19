@@ -34,14 +34,7 @@ class AdlistController extends BaseController
 
 	public function indexAction()
 	{
-		print_r($_SESSION);
-		die;
-		$this->view->setVar('all', $this->_AREAS);
-
-		// foreach ($this->_AREAS as $key => $area){
-		// 	echo $key."  ".$area.'<br>';
-		// }
-		
+		// $ads = Ad::find();		
 	}
 
 

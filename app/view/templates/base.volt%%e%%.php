@@ -7,7 +7,7 @@ a:5:{i:0;s:272:"<!DOCTYPE html>
 	<?php echo $this->assets->outputCss('style'); ?>
 	<?php echo $this->assets->outputJs('js'); ?>
 	";s:4:"head";a:1:{i:0;a:4:{s:4:"type";i:357;s:5:"value";s:2:"
-	";s:4:"file";s:31:"../app/view/templates/base.volt";s:4:"line";i:10;}}i:1;s:1541:"
+	";s:4:"file";s:31:"../app/view/templates/base.volt";s:4:"line";i:10;}}i:1;s:1310:"
 </head>
 <body>
 <div>
@@ -41,13 +41,9 @@ a:5:{i:0;s:272:"<!DOCTYPE html>
 			</div>
 			<div>
 				<ul class="nav navbar-nav navbar-right">
-				<?php echo $this->session->get('logged_in'); ?>
-				<?php if ($this->session->get('logged_in') == 1) { ?> 
-					<li><a href="<?php echo $this->url->get('userpanel/signout'); ?>">Odjava</a></li>
-				<?php } else { ?> 
 					<li><a href="<?php echo $this->url->get('login/'); ?>">Prijava</a></li>
 					<li><a href="<?php echo $this->url->get('login/register'); ?>">Registracija</a></li>
-				<?php } ?>
+				
 				</ul>
 			</div>
 		</div>
@@ -58,7 +54,7 @@ a:5:{i:0;s:272:"<!DOCTYPE html>
 <?php echo $this->flash->output(); ?>
 
 ";s:7:"content";a:1:{i:0;a:4:{s:4:"type";i:357;s:5:"value";s:1:"
-";s:4:"file";s:31:"../app/view/templates/base.volt";s:4:"line";i:61;}}i:2;s:18:"
+";s:4:"file";s:31:"../app/view/templates/base.volt";s:4:"line";i:57;}}i:2;s:18:"
 
 
 </body>

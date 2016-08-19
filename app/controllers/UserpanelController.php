@@ -75,8 +75,32 @@ class UserpanelController extends BaseController
 		$price = $this->request->getPost('price');
 		$user_id = $this->session->get('id');
 
+	
 		
+		$ad = new Ad();
 		
+		$ad->user_id = $user_id;
+		$ad->title = $title;
+		$ad->category = $category;
+		$ad->location = $location;
+		$ad->description = $description;
+		$ad->picture = $picture;
+		$ad->price = $price;		
+		
+		$result = $ad->save();
+
+		if (!$result){
+			$output = [];
+			foreach ($user->getMessages() as $message) {
+				$output[] = $message;
+			}
+			$output = implode(',', $output);
+			$this->flash->error($output);
+			$this->response->redirect('userpanel/createad');
+			return;
+		}
+
+		$this->response->redirect('userpanel/');
 
 	}
 

@@ -5,7 +5,7 @@ use \Phalcon\Mvc\Model\Behavior\SoftDelete,
 	\Phalcon\Security;
 
 
-class User extends BaseModel
+class Ad extends BaseModel
 {
 
 	public function initialize()

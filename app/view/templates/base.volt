@@ -40,13 +40,10 @@
 				</form>
 			</div>
 			<div>
-				<ul class="nav navbar-nav navbar-right">				
-				{% if session.get('logged_in') == 1 %} {# variable is not set #}
-					<li><a href="{{ url('userpanel/signout') }}">Odjava</a></li>
-				{% else %} {# variable is set #}
+				<ul class="nav navbar-nav navbar-right">
 					<li><a href="{{ url('login/') }}">Prijava</a></li>
 					<li><a href="{{ url('login/register') }}">Registracija</a></li>
-				{% endif %}
+				
 				</ul>
 			</div>
 		</div>

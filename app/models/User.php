@@ -12,7 +12,7 @@ class User extends BaseModel
 	{
 		// veza jedan naprema vise (user prema vise oglasa)
 		// lokalno polje, referencirani model, referencirano polje
-		$this->hasMany('id', 'Ads', 'user_id');
+		$this->hasMany('id', 'Ad', 'user_id');
 
 		$this->addBehavior(new SoftDelete([
 			'field' => 'deleted',

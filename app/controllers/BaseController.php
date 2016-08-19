@@ -7,7 +7,7 @@ class BaseController extends \Phalcon\Mvc\Controller
 	public function initialize()
 	{
 
-		Tag::prependTitle('Snjofko | ');
+		Tag::prependTitle('Snjofko|');
 
 		$this->assets
 			 ->collection('style')

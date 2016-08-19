@@ -23,7 +23,6 @@ class IndexController extends BaseController
 	public function hashPassAction($pass)
 	{
 		echo $this->security->hash($pass);
-		die;
 	}
 
 	public function signoutAction()

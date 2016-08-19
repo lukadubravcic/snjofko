@@ -7,7 +7,7 @@
 	<?php echo $this->assets->outputCss('style'); ?>
 	<?php echo $this->assets->outputJs('js'); ?>
 	
-
+  <?php echo $this->assets->outputCss('other'); ?>
 
 </head>
 <body>
@@ -55,45 +55,28 @@
 <?php echo $this->flash->output(); ?>
 
 
+<div class="container">
 
-<div class="container" >
-	<!-- Example row of columns -->
-	<div class="row">
-		<div class="col-md-4">
-			<a href="#" <a href="#" class="btn btn-block btn-lg btn-warning"> Auto-Moto</a>			
-		</div>
-		<div class="col-md-4">
-			
-			<a href="#" <a href="#" class="btn btn-block btn-lg btn-warning"> Nekretnine</a>
-			
-		</div>
-		<div class="col-md-4">
-			<a href="#" class="btn btn-block btn-lg btn-warning">Usluge</a>
-			
-		</div>
-	</div>
-	<br>
-	<div class="row">
-		<div class="col-md-4">
-			<a href="#" class="btn btn-block btn-lg btn-warning">Elektronika</a>
-			
-		</div>
-		<div class="col-md-4">
-			<a href="#" class="btn btn-block btn-lg btn-warning">Audio-Video</a>
-			
-		</div>
-		<div class="col-md-4">
-			
-			<a href="#" class="btn btn-block btn-lg btn-warning">
-			Sjekire</a>
+    <legend>Registracija</legend>
+    <br><br>
 
-			
-		</div>
-	</div>
+    <form class="form-signin" method="post" action="<?php echo $this->url->get('login/doRegister'); ?>">
 
+        <input type="name" name="name" class="form-control" placeholder="Korisničko ime" required autofocus>
 
-</div>
+        <input type="email" name="email" class="form-control" placeholder="Email adresa" required autofocus>
 
+        <input type="password" name="password" class="form-control" placeholder="Lozinka" required>
+
+        <input type="password" name="confirm_password" class="form-control" placeholder="Ponovi lozinku" required>
+
+        <input class="btn btn-lg btn-primary btn-block btn-warning" type="submit" value="Prijava"></input>
+
+        <input type="hidden" name="<?php echo $this->security->getTokenKey(); ?>" value="<?php echo $this->security->getTokenKey(); ?>" />
+
+    </form>
+
+</div> <!-- /container -->
 
 
 

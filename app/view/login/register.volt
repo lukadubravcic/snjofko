@@ -1,43 +1,30 @@
 {% extends "templates/base.volt" %}
 
+{% block head %}
+  {{ this.assets.outputCss('other') }}
+{% endblock %}
+
 {% block content %}
-
 <div class="container">
-<form class="form-horizontal">
-<fieldset>
 
-<!-- Form Name -->
-<legend>Form Name</legend>
+    <legend>Registracija</legend>
+    <br><br>
 
-<!-- Text input-->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="textinput">Text Input</label>  
-  <div class="col-md-4">
-  <input id="textinput" name="textinput" type="text" placeholder="placeholder" class="form-control input-md">
-  <span class="help-block">help</span>  
-  </div>
-</div>
+    <form class="form-signin" method="post" action="{{ url('login/doRegister') }}">
 
-<!-- Password input-->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="passwordinput">Password Input</label>
-  <div class="col-md-4">
-    <input id="passwordinput" name="passwordinput" type="password" placeholder="placeholder" class="form-control input-md">
-    <span class="help-block">help</span>
-  </div>
-</div>
+        <input type="name" name="name" class="form-control" placeholder="Korisničko ime" required autofocus>
 
-<!-- Password input-->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="passwordinput">Password Input</label>
-  <div class="col-md-4">
-    <input id="passwordinput" name="passwordinput" type="password" placeholder="placeholder" class="form-control input-md">
-    <span class="help-block">help</span>
-  </div>
-</div>
+        <input type="email" name="email" class="form-control" placeholder="Email adresa" required autofocus>
 
-</fieldset>
-</form>
-</div>
+        <input type="password" name="password" class="form-control" placeholder="Lozinka" required>
 
+        <input type="password" name="confirm_password" class="form-control" placeholder="Ponovi lozinku" required>
+
+        <input class="btn btn-lg btn-primary btn-block btn-warning" type="submit" value="Prijava"></input>
+
+        <input type="hidden" name="{{ security.getTokenKey() }}" value="{{ security.getTokenKey() }}" />
+
+    </form>
+
+</div> <!-- /container -->
 {% endblock %}

@@ -7,7 +7,8 @@ class LoginController extends BaseController
 	
 	public function onConstruct()
 	{
-		parent::initialize();
+		parent::initialize();		
+		$this->assets->collection('other')->addCss('css/login.css');
 	}	
 
 	private function _createUserSession(User $user)
@@ -21,7 +22,6 @@ class LoginController extends BaseController
 	public function indexAction()
 	{
 		Tag::setTitle('Prijava');
-		$this->assets->collection('other')->addCss('css/login.css');
 	}
 
 	public function dologinAction()
@@ -29,8 +29,8 @@ class LoginController extends BaseController
 		// Provjera CSRF tokena
 		if ($this->security->checkToken() == false)
 		{
-			$this->flash->error('Invalid CSRF Token');
-			$this->response->redirect('signin/index');
+			$this->flash->error('CSRF Token neispravan');
+			$this->response->redirect('login/index');
 			return;
 		}
 
@@ -48,7 +48,7 @@ class LoginController extends BaseController
 			}
 		}
 
-		$this->flash->error('Incorrect Credentials');
+		$this->flash->error('Krivi podaci za prijavu');
 		$this->response->redirect('login/index');
 	}
 
@@ -60,7 +60,49 @@ class LoginController extends BaseController
 
 	public function registerAction()
 	{
-		Tag::setTitle('Registration');
-		//$this->assets->collection('other')->addCss()
+		Tag::setTitle('Registracija');
+	}
+
+	public function doRegisterAction()
+	{
+		$this->view->disable();
+
+		if ($this->security->checkToken() == false)
+		{
+			$this->flash->error('CSRF Token neispravan');
+			$this->response->redirect('login/register');
+			return;
+		}
+
+		$name = $this->request->getPost('name');
+		$email = $this->request->getPost('email');
+		$password = $this->request->getPost('password');
+		$confirm_password = $this->request->getPost('confirm_password');
+
+		if ($password != $confirm_password) {
+			$this->flash->error('Lozinke nisu jednake.');
+			$this->response->redirect('login/register');
+		}
+
+		$user = new User();
+		$user->name = $name;
+		$user->role = 'user';
+		$user->email = $email;
+		$user->password = $password;
+		$result = $user->save();
+
+
+		if (!$result) {
+			$output = [];
+			foreach ($user->getMessages() as $message) {
+				$output[] = $message;
+			}
+			$output = implode(',', $output);
+			$this->flash->error($output);
+			$this->response->redirect('login/register');
+			return;
+		}
+
+		$this->_createUserSession($user);
 	}
 }

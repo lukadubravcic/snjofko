@@ -44,13 +44,9 @@
 			</div>
 			<div>
 				<ul class="nav navbar-nav navbar-right">
-				<?php echo $this->session->get('logged_in'); ?>
-				<?php if ($this->session->get('logged_in') == 1) { ?> 
-					<li><a href="<?php echo $this->url->get('userpanel/signout'); ?>">Odjava</a></li>
-				<?php } else { ?> 
 					<li><a href="<?php echo $this->url->get('login/'); ?>">Prijava</a></li>
 					<li><a href="<?php echo $this->url->get('login/register'); ?>">Registracija</a></li>
-				<?php } ?>
+				
 				</ul>
 			</div>
 		</div>
