@@ -8,15 +8,13 @@ class IndexController extends BaseController
 	public function onConstruct()
 	{
 		parent::initialize();
-		$this->session->set('logged_in', 0);
+		// $this->session->set('logged_in', 0);
 	}
 
 	public function indexAction()
 	{
 		Tag::setTitle('Početna');
 		if ($this->session->get('logged_in') == 1) {
-			echo 'ulaz';
-			die;
 			$this->response->redirect('userpanel/index');
 		}		
 	}
@@ -25,6 +23,7 @@ class IndexController extends BaseController
 	public function hashPassAction($pass)
 	{
 		echo $this->security->hash($pass);
+		die;
 	}
 
 	public function signoutAction()

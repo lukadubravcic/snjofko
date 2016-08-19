@@ -63,9 +63,21 @@ class UserpanelController extends BaseController
 			]);		
 	}
 
-	public function saveAdd()
+	public function saveAdAction()
 	{
+		$this->view->disable();
+
+		$title = $this->request->getPost('title');
+		$category = $this->request->getPost('category');
+		$location = $this->request->getPost('location');
+		$description = $this->request->getPost('description');
+		$picture = $this->request->getPost('picture');
+		$price = $this->request->getPost('price');
+		$user_id = $this->session->get('id');
+
 		
+		
+
 	}
 
 }

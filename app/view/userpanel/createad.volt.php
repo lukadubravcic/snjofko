@@ -56,7 +56,7 @@
 
 
 <div class="container">
-    <form class="form-horizontal" method="post" action="<?php echo $this->url->get('userpanel/'); ?>">
+    <form class="form-horizontal" method="post" action="<?php echo $this->url->get('userpanel/savead'); ?>">
         <fieldset>
 
           <!-- Form Name -->
@@ -66,7 +66,7 @@
           <div class="form-group">
               <label class="col-md-4 control-label" for="textinput">Naziv oglasa</label>  
                   <div class="col-md-4">
-                      <input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md"> 
+                      <input id="textinput" name="title" type="text" placeholder="" class="form-control input-md"> 
                   </div>
           </div> 
 
@@ -74,9 +74,9 @@
           <div class="form-group">
               <label class="col-md-4 control-label" for="selectbasic">Kategorija</label>
               <div class="col-md-4">
-                  <select id="selectbasic" name="selectbasic" class="form-control">
-                      <?php foreach ($categories as $key => $category) { ?>
-                          <option value="<?php echo $key; ?>"><?php echo $category; ?></option>                      
+                  <select id="selectbasic" name="category" class="form-control">
+                      <?php foreach ($categories as $category) { ?>
+                          <option value="<?php echo $category; ?>"><?php echo $category; ?></option>                      
                       <?php } ?>
                   </select>
               </div>
@@ -86,9 +86,9 @@
           <div class="form-group">
               <label class="col-md-4 control-label" for="selectbasic">Županija</label>
               <div class="col-md-4">
-                  <select id="selectbasic" name="selectbasic" class="form-control">
-                      <?php foreach ($areas as $key => $area) { ?>
-                          <option value="<?php echo $key; ?>"><?php echo $area; ?></option>                      
+                  <select id="selectbasic" name="location" class="form-control">
+                      <?php foreach ($areas as $area) { ?>
+                          <option value="<?php echo $area; ?>"><?php echo $area; ?></option>                      
                       <?php } ?>
                   </select>
               </div>
@@ -98,7 +98,7 @@
           <div class="form-group">
               <label class="col-md-4 control-label" for="textarea">Tekst oglasa</label>
               <div class="col-md-4">                     
-                  <textarea class="form-control" id="textarea" name="textarea"></textarea>
+                  <textarea class="form-control" id="textarea" name="description"></textarea>
               </div>
           </div>
 
@@ -106,7 +106,7 @@
           <div class="form-group">
               <label class="col-md-4 control-label" for="filebutton">Slika</label>
               <div class="col-md-4">
-                 <input id="filebutton" name="filebutton" class="input-file" type="file">
+                 <input id="filebutton" name="picture" class="input-file" type="file">
               </div>
           </div>
 
@@ -114,7 +114,7 @@
           <div class="form-group">
               <label class="col-md-4 control-label" for="textinput">Cijena (HRK)</label>  
               <div class="col-md-4">
-                  <input id="textinput" name="textinput" type="text" placeholder="1.00" class="form-control input-md">
+                  <input id="textinput" name="price" type="text" placeholder="1.00" class="form-control input-md">
               </div>
           </div>
 
