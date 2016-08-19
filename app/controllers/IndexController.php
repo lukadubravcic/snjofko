@@ -8,11 +8,17 @@ class IndexController extends BaseController
 	public function onConstruct()
 	{
 		parent::initialize();
+		$this->session->set('logged_in', 0);
 	}
 
 	public function indexAction()
 	{
-		Tag::setTitle('Home');			
+		Tag::setTitle('Početna');
+		if ($this->session->get('logged_in') == 1) {
+			echo 'ulaz';
+			die;
+			$this->response->redirect('userpanel/index');
+		}		
 	}
 
 	// test samo za generiranje password hasha
@@ -25,5 +31,10 @@ class IndexController extends BaseController
 	{
 		$this->session->destroy();
 		$this->response->redirect('index/');
+	}
+
+	public function aboutAction()
+	{
+		Tag::setTitle('O nama');
 	}
 }

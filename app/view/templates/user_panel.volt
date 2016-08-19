@@ -21,15 +21,15 @@
 			<span class="icon-bar"></span>
 			<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="{{ url('index') }}">Kitnjak</a>
+			<a class="navbar-brand" href="{{ url('index') }}">Snjofko</a>
 		</div>
 
 		<div class="navbar-collapse collapse">
 
 			<ul class="nav navbar-nav">
-				<li class="active"><a href="#">Nesto</a></li>
-				<li><a href="#about">Nesto</a></li>	
-				<li><a href="#contact">Nesto</a></li>
+				<li><a href="#">Korisnički profil</a></li>
+				<li><a href="#about">Vlastiti oglasi</a></li>
+				<li><a href="{{ url('userpanel/createad') }}">Objavi oglas</a></li>
 			</ul>
 
 			<div class="col-sm-3 col-md-3">
@@ -44,8 +44,7 @@
 			</div>
 			<div>
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="{{ url('login/') }}">Prijava</a></li>
-					<li><a href="{{ url('login/register') }}">Registracija</a></li>
+					<li><a href="{{ url('userpanel/signout') }}">Odjava</a></li>					
 				</ul>
 			</div>
 		</div>

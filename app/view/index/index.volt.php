@@ -21,15 +21,13 @@
 			<span class="icon-bar"></span>
 			<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="<?php echo $this->url->get('index'); ?>">Kitnjak</a>
+			<a class="navbar-brand" href="<?php echo $this->url->get('index/'); ?>">Snjofko</a>
 		</div>
 
 		<div class="navbar-collapse collapse">
 
 			<ul class="nav navbar-nav">
-				<li class="active"><a href="#">Nesto</a></li>
-				<li><a href="#about">Nesto</a></li>	
-				<li><a href="#contact">Nesto</a></li>
+				<li><a href="<?php echo $this->url->get('index/about'); ?>">O nama</a></li>				
 			</ul>
 
 			<div class="col-sm-3 col-md-3">
@@ -44,8 +42,13 @@
 			</div>
 			<div>
 				<ul class="nav navbar-nav navbar-right">
+				<?php echo $this->session->get('logged_in'); ?>
+				<?php if ($this->session->get('logged_in') == 1) { ?> 
+					<li><a href="<?php echo $this->url->get('userpanel/signout'); ?>">Odjava</a></li>
+				<?php } else { ?> 
 					<li><a href="<?php echo $this->url->get('login/'); ?>">Prijava</a></li>
 					<li><a href="<?php echo $this->url->get('login/register'); ?>">Registracija</a></li>
+				<?php } ?>
 				</ul>
 			</div>
 		</div>

@@ -1,13 +1,14 @@
-a:5:{i:0;s:272:"<!DOCTYPE html>
+a:5:{i:0;s:341:"<!DOCTYPE html>
 <html lang="en">
 <head>
 	<?php echo $this->tag->getTitle(); ?>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<?php echo $this->assets->outputCss('style'); ?>
+	<link rel="stylesheet" type="text/css" href="css/customnavbar.css">
 	<?php echo $this->assets->outputJs('js'); ?>
 	";s:4:"head";a:1:{i:0;a:4:{s:4:"type";i:357;s:5:"value";s:2:"
-	";s:4:"file";s:31:"../app/view/templates/base.volt";s:4:"line";i:10;}}i:1;s:1541:"
+	";s:4:"file";s:37:"../app/view/templates/user_panel.volt";s:4:"line";i:11;}}i:1;s:1336:"
 </head>
 <body>
 <div>
@@ -20,13 +21,15 @@ a:5:{i:0;s:272:"<!DOCTYPE html>
 			<span class="icon-bar"></span>
 			<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="<?php echo $this->url->get('index/'); ?>">Snjofko</a>
+			<a class="navbar-brand" href="<?php echo $this->url->get('index'); ?>">Snjofko</a>
 		</div>
 
 		<div class="navbar-collapse collapse">
 
 			<ul class="nav navbar-nav">
-				<li><a href="<?php echo $this->url->get('index/about'); ?>">O nama</a></li>				
+				<li><a href="#">Korisnički profil</a></li>
+				<li><a href="#about">Vlastiti oglasi</a></li>
+				<li><a href="<?php echo $this->url->get('userpanel/createad'); ?>">Objavi oglas</a></li>
 			</ul>
 
 			<div class="col-sm-3 col-md-3">
@@ -41,13 +44,7 @@ a:5:{i:0;s:272:"<!DOCTYPE html>
 			</div>
 			<div>
 				<ul class="nav navbar-nav navbar-right">
-				<?php echo $this->session->get('logged_in'); ?>
-				<?php if ($this->session->get('logged_in') == 1) { ?> 
-					<li><a href="<?php echo $this->url->get('userpanel/signout'); ?>">Odjava</a></li>
-				<?php } else { ?> 
-					<li><a href="<?php echo $this->url->get('login/'); ?>">Prijava</a></li>
-					<li><a href="<?php echo $this->url->get('login/register'); ?>">Registracija</a></li>
-				<?php } ?>
+					<li><a href="<?php echo $this->url->get('userpanel/signout'); ?>">Odjava</a></li>					
 				</ul>
 			</div>
 		</div>
@@ -58,7 +55,7 @@ a:5:{i:0;s:272:"<!DOCTYPE html>
 <?php echo $this->flash->output(); ?>
 
 ";s:7:"content";a:1:{i:0;a:4:{s:4:"type";i:357;s:5:"value";s:1:"
-";s:4:"file";s:31:"../app/view/templates/base.volt";s:4:"line";i:61;}}i:2;s:18:"
+";s:4:"file";s:37:"../app/view/templates/user_panel.volt";s:4:"line";i:58;}}i:2;s:18:"
 
 
 </body>

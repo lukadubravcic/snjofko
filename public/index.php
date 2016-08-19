@@ -72,6 +72,20 @@ try{
 		return $metaData;
 	};
 
+	// Custom Dispatcher (Overrides the default)
+	$di->set('dispatcher', function() use ($di){
+		$eventsManager = $di->getShared('eventsManager');
+		
+		//Custom ACL class
+		$permission = new Permission();
+		
+		// Listen for events from the permision class
+		$eventsManager->attach('dispatch', $permission);
+
+		$dispatcher = new \Phalcon\Mvc\Dispatcher();
+		$dispatcher->setEventsManager($eventsManager);
+		return $dispatcher;
+	});
 	
 	
 	$app = new \Phalcon\Mvc\Application($di);

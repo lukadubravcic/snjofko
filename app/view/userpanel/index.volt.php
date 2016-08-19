@@ -5,10 +5,9 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<?php echo $this->assets->outputCss('style'); ?>
+	<link rel="stylesheet" type="text/css" href="css/customnavbar.css">
 	<?php echo $this->assets->outputJs('js'); ?>
 	
-
-  <?php echo $this->assets->outputCss('other'); ?>
 
 
 </head>
@@ -23,13 +22,15 @@
 			<span class="icon-bar"></span>
 			<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="<?php echo $this->url->get('index/'); ?>">Snjofko</a>
+			<a class="navbar-brand" href="<?php echo $this->url->get('index'); ?>">Snjofko</a>
 		</div>
 
 		<div class="navbar-collapse collapse">
 
 			<ul class="nav navbar-nav">
-				<li><a href="<?php echo $this->url->get('index/about'); ?>">O nama</a></li>				
+				<li><a href="#">Korisnički profil</a></li>
+				<li><a href="#about">Vlastiti oglasi</a></li>
+				<li><a href="<?php echo $this->url->get('userpanel/createad'); ?>">Objavi oglas</a></li>
 			</ul>
 
 			<div class="col-sm-3 col-md-3">
@@ -44,13 +45,7 @@
 			</div>
 			<div>
 				<ul class="nav navbar-nav navbar-right">
-				<?php echo $this->session->get('logged_in'); ?>
-				<?php if ($this->session->get('logged_in') == 1) { ?> 
-					<li><a href="<?php echo $this->url->get('userpanel/signout'); ?>">Odjava</a></li>
-				<?php } else { ?> 
-					<li><a href="<?php echo $this->url->get('login/'); ?>">Prijava</a></li>
-					<li><a href="<?php echo $this->url->get('login/register'); ?>">Registracija</a></li>
-				<?php } ?>
+					<li><a href="<?php echo $this->url->get('userpanel/signout'); ?>">Odjava</a></li>					
 				</ul>
 			</div>
 		</div>
@@ -62,19 +57,43 @@
 
 
 
-<div class="container">
+<div class="container" >
+	<!-- Example row of columns -->
+	<div class="row">
+		<div class="col-md-4">
+			<a href="#" <a href="#" class="btn btn-block btn-lg btn-warning"> Auto-Moto</a>			
+		</div>
+		<div class="col-md-4">
+			
+			<a href="#" <a href="#" class="btn btn-block btn-lg btn-warning"> Nekretnine</a>
+			
+		</div>
+		<div class="col-md-4">
+			<a href="#" class="btn btn-block btn-lg btn-warning">Usluge</a>
+			
+		</div>
+	</div>
+	<br>
+	<div class="row">
+		<div class="col-md-4">
+			<a href="#" class="btn btn-block btn-lg btn-warning">Elektronika</a>
+			
+		</div>
+		<div class="col-md-4">
+			<a href="#" class="btn btn-block btn-lg btn-warning">Audio-Video</a>
+			
+		</div>
+		<div class="col-md-4">
+			
+			<a href="#" class="btn btn-block btn-lg btn-warning">
+			Sjekire</a>
 
-<legend>Prijava</legend>
-<br><br>
-  <form class="form-signin" method="post" action="<?php echo $this->url->get('login/dologin'); ?>">
-      <input type="email" name="email" class="form-control" placeholder="Email address" required autofocus>
-      <input type="password" name="password" class="form-control" placeholder="Password" required>
-      <input class="btn btn-lg btn-primary btn-block btn-warning" type="submit" value="Sign in"></input>
-      <input type="hidden" name="<?php echo $this->security->getTokenKey(); ?>" value="<?php echo $this->security->getTokenKey(); ?>" />
-  </form>
+			
+		</div>
+	</div>
+
 
 </div>
-
 
 
 

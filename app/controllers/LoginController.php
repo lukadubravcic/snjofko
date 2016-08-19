@@ -14,13 +14,13 @@ class LoginController extends BaseController
 	{
 		$this->session->set('id', $user->id);
 		$this->session->set('role', $user->role);
-		$this->response->redirect("index/");
-		// TODO
+		$this->session->set('logged_in', 1);
+		$this->response->redirect("userpanel/index");
 	}
 
 	public function indexAction()
 	{
-		Tag::setTitle('Login');
+		Tag::setTitle('Prijava');
 		$this->assets->collection('other')->addCss('css/login.css');
 	}
 
@@ -55,6 +55,7 @@ class LoginController extends BaseController
 	public function destroySessionAction()
 	{
 		$this->session->destroy();
+		$this->session->set('logged_in', 0);
 	}
 
 	public function registerAction()

@@ -20,15 +20,13 @@
 			<span class="icon-bar"></span>
 			<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="{{ url('index') }}">Kitnjak</a>
+			<a class="navbar-brand" href="{{ url('index/') }}">Snjofko</a>
 		</div>
 
 		<div class="navbar-collapse collapse">
 
 			<ul class="nav navbar-nav">
-				<li class="active"><a href="#">Nesto</a></li>
-				<li><a href="#about">Nesto</a></li>	
-				<li><a href="#contact">Nesto</a></li>
+				<li><a href="{{ url('index/about') }}">O nama</a></li>				
 			</ul>
 
 			<div class="col-sm-3 col-md-3">
@@ -42,9 +40,13 @@
 				</form>
 			</div>
 			<div>
-				<ul class="nav navbar-nav navbar-right">
+				<ul class="nav navbar-nav navbar-right">				
+				{% if session.get('logged_in') == 1 %} {# variable is not set #}
+					<li><a href="{{ url('userpanel/signout') }}">Odjava</a></li>
+				{% else %} {# variable is set #}
 					<li><a href="{{ url('login/') }}">Prijava</a></li>
 					<li><a href="{{ url('login/register') }}">Registracija</a></li>
+				{% endif %}
 				</ul>
 			</div>
 		</div>
