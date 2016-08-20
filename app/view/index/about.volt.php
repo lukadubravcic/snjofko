@@ -8,8 +8,6 @@
 	<?php echo $this->assets->outputJs('js'); ?>
 	
 
-  <?php echo $this->assets->outputCss('other'); ?>
-
 
 </head>
 <body>
@@ -57,21 +55,11 @@
 <?php echo $this->flash->output(); ?>
 
 
-
 <div class="container">
-
-<legend>Prijava Korisnika</legend>
-<br><br>
-  <form class="form-signin" method="post" action="<?php echo $this->url->get('login/dologin'); ?>">
-      <input type="email" name="email" class="form-control" placeholder="Email adresa" required autofocus>
-      <input type="password" name="password" class="form-control" placeholder="Lozinka" required>
-      <input class="btn btn-lg btn-primary btn-block btn-warning" type="submit" value="Prijava"></input>
-      <input type="hidden" name="<?php echo $this->security->getTokenKey(); ?>" value="<?php echo $this->security->getTokenKey(); ?>" />
-  </form>
-
+<legend>O nama</legend>
+<br>
+Neki tekst o tome kakvi smo mi patnici i papci.
 </div>
-
-
 
 
 
