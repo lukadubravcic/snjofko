@@ -1,4 +1,4 @@
-a:5:{i:0;s:341:"<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 	<?php echo $this->tag->getTitle(); ?>
@@ -7,8 +7,15 @@ a:5:{i:0;s:341:"<!DOCTYPE html>
 	<?php echo $this->assets->outputCss('style'); ?>
 	<link rel="stylesheet" type="text/css" href="css/customnavbar.css">
 	<?php echo $this->assets->outputJs('js'); ?>
-	";s:4:"head";a:1:{i:0;a:4:{s:4:"type";i:357;s:5:"value";s:2:"
-	";s:4:"file";s:37:"../app/view/templates/user_panel.volt";s:4:"line";i:11;}}i:1;s:1385:"
+	
+<style type="text/css">
+	.aParent div {
+  float: left;
+  clear: none; 
+}
+</style>
+
+
 </head>
 <body>
 <div>
@@ -54,9 +61,40 @@ a:5:{i:0;s:341:"<!DOCTYPE html>
 	 
 <?php echo $this->flash->output(); ?>
 
-";s:7:"content";a:1:{i:0;a:4:{s:4:"type";i:357;s:5:"value";s:1:"
-";s:4:"file";s:37:"../app/view/templates/user_panel.volt";s:4:"line";i:58;}}i:2;s:18:"
+
+
+	<div class="container">
+
+		<?php foreach ($ads as $ad) { ?>
+
+			<form class="form-horizontal" style="background-color:#d9d9d9">
+				<fieldset>
+					<legend><?php echo $ad->title; ?></legend>	
+
+					<div class="col-md-6">
+						Kategorija: <?php echo $ad->category; ?> <br>
+						Lokacija: <?php echo $ad->location; ?> <br>
+						Opis oglasa: <?php echo $ad->description; ?> <br>
+						Cijena: <?php echo $ad->price; ?> HRK
+						<br><br>
+					</div>
+
+					<div class="col-md-6">
+						<?php if ($ad->picture != null) { ?>
+						<img src="<?php echo $ad->picture; ?>" style="border:3px solid black;" height="200" alt="Slika">
+						<?php } ?>
+						<br><br>
+					</div>
+				</fieldset>
+			</form>
+			<br>
+
+		<?php } ?>
+
+	</div>
+
+
 
 
 </body>
-</html>";}
+</html>

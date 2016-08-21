@@ -88,10 +88,10 @@ class UserpanelController extends BaseController
 		// spremanje slike u folder i njezinog filepatha u odredeno polje
 
 		$baseLocation = self::FILE_PATH.$user_id.'/';
-		$file = new Phalcon\Http\Request\File($_FILES[picture]);		
-		$ad->picture = $baseLocation.$file->getName();		
+		$file = new Phalcon\Http\Request\File($_FILES[picture]);
 		$file->moveTo($baseLocation . $file->getName());		
-	
+		$ad->picture = $baseLocation.$file->getName();
+
 		$ad->price = $price;		
 		
 		$result = $ad->save();
@@ -109,6 +109,14 @@ class UserpanelController extends BaseController
 
 		$this->response->redirect('userpanel/');
 
+	}
+
+	public function getUsersAdsAction()
+	{
+		Tag::setTitle('Vasi oglasi');
+		$id = $this->session->get('id');
+		$ads = Ad::findByUser_id($id);	
+		$this->view->setVar('ads',$ads);
 	}
 
 }

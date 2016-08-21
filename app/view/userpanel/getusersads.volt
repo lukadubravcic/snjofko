@@ -1,4 +1,4 @@
-{% extends "templates/base.volt" %}
+{% extends "templates/user_panel.volt" %}
 
 {% block head %}
 <style type="text/css">
@@ -30,7 +30,7 @@
 
 					<div class="col-md-6">
 						{% if ad.picture != NULL %}
-						<img src="snjofko/public/image/15/chetbaker1.jpg" style="border:3px solid black;" height="200" alt="Slika">
+						<img src="{{ ad.picture }}" style="border:3px solid black;" height="200" alt="Slika">
 						{% endif %}
 						<br><br>
 					</div>

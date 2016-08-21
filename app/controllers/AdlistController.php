@@ -1,4 +1,6 @@
-<?php
+<?php 
+
+use \Phalcon\Tag;
 
 class AdlistController extends BaseController
 {
@@ -8,15 +10,21 @@ class AdlistController extends BaseController
 		parent::initialize();
 	}
 
-	public function indexAction()
+	public function indexAction($category)
 	{
-		 $ads = Ad::find();
-		 $this->view->setVar('ads', $ads);		
+		Tag::setTitle('Oglasi');
+
+		$ads = Ad::findByCategory($category);		
+		$this->view->setVar('ads',$ads);		
 	}
 
+	public function showallAction($category)
+	{
 
+		Tag::setTitle('Svi oglasi');
+		$ads = Ad::find();		
+		$this->view->setVar('ads',$ads);		
+	}
 
 }
-
-
 

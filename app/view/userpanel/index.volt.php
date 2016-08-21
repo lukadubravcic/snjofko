@@ -29,7 +29,7 @@
 
 			<ul class="nav navbar-nav">
 				<li><a href="#">Korisnički profil</a></li>
-				<li><a href="#about">Vlastiti oglasi</a></li>
+				<li><a href="<?php echo $this->url->get('userpanel/getusersads'); ?>">Vlastiti oglasi</a></li>
 				<li><a href="<?php echo $this->url->get('userpanel/createad'); ?>">Objavi oglas</a></li>
 			</ul>
 
@@ -60,32 +60,33 @@
 <div class="container" >
 	<!-- Example row of columns -->
 	<div class="row">
+
 		<div class="col-md-4">
-			<a href="#" <a href="#" class="btn btn-block btn-lg btn-warning"> Auto-Moto</a>			
+			<a href="<?php echo $this->url->get('adlist/index/Auto-Moto'); ?>" class="btn btn-block btn-lg btn-warning"> Auto-Moto</a>			
 		</div>
 		<div class="col-md-4">
 			
-			<a href="#" <a href="#" class="btn btn-block btn-lg btn-warning"> Nekretnine</a>
+			<a href="<?php echo $this->url->get('adlist/index/Nekretnine'); ?>" class="btn btn-block btn-lg btn-warning"> Nekretnine</a>
 			
 		</div>
 		<div class="col-md-4">
-			<a href="#" class="btn btn-block btn-lg btn-warning">Usluge</a>
+			<a href="<?php echo $this->url->get('adlist/index/Usluge'); ?>" class="btn btn-block btn-lg btn-warning">Usluge</a>
 			
 		</div>
 	</div>
 	<br>
 	<div class="row">
 		<div class="col-md-4">
-			<a href="#" class="btn btn-block btn-lg btn-warning">Elektronika</a>
+			<a href="<?php echo $this->url->get('adlist/index/Elektronika'); ?>" class="btn btn-block btn-lg btn-warning">Elektronika</a>
 			
 		</div>
 		<div class="col-md-4">
-			<a href="#" class="btn btn-block btn-lg btn-warning">Audio-Video</a>
+			<a href="<?php echo $this->url->get('adlist/index/Audio-Video'); ?>" class="btn btn-block btn-lg btn-warning">Audio-Video</a>
 			
 		</div>
 		<div class="col-md-4">
 			
-			<a href="#" class="btn btn-block btn-lg btn-warning">
+			<a href="<?php echo $this->url->get('adlist/index/Sjekire'); ?>" class="btn btn-block btn-lg btn-warning">
 			Sjekire</a>
 
 			

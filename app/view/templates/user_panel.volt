@@ -28,7 +28,7 @@
 
 			<ul class="nav navbar-nav">
 				<li><a href="#">Korisnički profil</a></li>
-				<li><a href="#about">Vlastiti oglasi</a></li>
+				<li><a href="{{ url('userpanel/getusersads') }}">Vlastiti oglasi</a></li>
 				<li><a href="{{ url('userpanel/createad') }}">Objavi oglas</a></li>
 			</ul>
 

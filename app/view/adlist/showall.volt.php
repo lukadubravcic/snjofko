@@ -7,6 +7,12 @@
 	<?php echo $this->assets->outputCss('style'); ?>
 	<?php echo $this->assets->outputJs('js'); ?>
 	
+<style type="text/css">
+	.aParent div {
+  float: left;
+  clear: none; 
+}
+</style>
 
 
 </head>
@@ -55,11 +61,37 @@
 <?php echo $this->flash->output(); ?>
 
 
-<div class="container">
-<legend>O nama</legend>
-<br>
-Neki tekst o tome kakvi smo mi patnici i papci.
-</div>
+
+	<div class="container">
+
+		<?php foreach ($ads as $ad) { ?>
+
+			<form class="form-horizontal" style="background-color:#d9d9d9">
+				<fieldset>
+					<legend><?php echo $ad->title; ?></legend>	
+
+					<div class="col-md-6">
+						Kategorija: <?php echo $ad->category; ?> <br>
+						Lokacija: <?php echo $ad->location; ?> <br>
+						Opis oglasa: <?php echo $ad->description; ?> <br>
+						Cijena: <?php echo $ad->price; ?> HRK
+						<br><br>
+					</div>
+
+					<div class="col-md-6">
+						<?php if ($ad->picture != null) { ?>
+						<img src="<?php echo $ad->picture; ?>" style="border:3px solid black;" height="200" alt="Slika">
+						<?php } ?>
+						<br><br>
+					</div>
+				</fieldset>
+			</form>
+			<br>
+
+		<?php } ?>
+
+	</div>
+
 
 
 

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+a:5:{i:0;s:272:"<!DOCTYPE html>
 <html lang="en">
 <head>
 	<?php echo $this->tag->getTitle(); ?>
@@ -6,9 +6,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<?php echo $this->assets->outputCss('style'); ?>
 	<?php echo $this->assets->outputJs('js'); ?>
-	
-  <?php echo $this->assets->outputCss('other'); ?>
-
+	";s:4:"head";a:1:{i:0;a:4:{s:4:"type";i:357;s:5:"value";s:2:"
+	";s:4:"file";s:31:"../app/view/templates/base.volt";s:4:"line";i:10;}}i:1;s:1310:"
 </head>
 <body>
 <div>
@@ -54,31 +53,9 @@
 	 
 <?php echo $this->flash->output(); ?>
 
-
-<div class="container">
-
-    <legend>Registracija</legend>
-    <br><br>
-
-    <form class="form-signin" method="post" action="<?php echo $this->url->get('login/doRegister'); ?>">
-
-        <input type="name" name="name" class="form-control" placeholder="Korisničko ime" required autofocus>
-
-        <input type="email" name="email" class="form-control" placeholder="Email adresa" required autofocus>
-
-        <input type="password" name="password" class="form-control" placeholder="Lozinka" required>
-
-        <input type="password" name="confirm_password" class="form-control" placeholder="Ponovi lozinku" required>
-
-        <input class="btn btn-lg btn-primary btn-block btn-warning" type="submit" value="Prijava"></input>
-
-        <input type="hidden" name="<?php echo $this->security->getTokenKey(); ?>" value="<?php echo $this->security->getTokenKey(); ?>" />
-
-    </form>
-
-</div> <!-- /container -->
-
+";s:7:"content";a:1:{i:0;a:4:{s:4:"type";i:357;s:5:"value";s:1:"
+";s:4:"file";s:31:"../app/view/templates/base.volt";s:4:"line";i:57;}}i:2;s:18:"
 
 
 </body>
-</html>
+</html>";}
