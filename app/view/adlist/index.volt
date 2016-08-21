@@ -1,5 +1,11 @@
-<h1>All Users</h1>
-{% for key, area in all %}
-	{{ key }}-
-	{{ area }}
+<h1>All Adds</h1>
+{% for key, ad in ads %}
+	{{ key }}.
+	{{ ad.title }}.
+	{{ ad.category }}.
+	{{ ad.location }}.
+	{{ ad.description }}.
+	{{ ad.price }}.
+	<br>
+
 {% endfor %}

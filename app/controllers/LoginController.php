@@ -88,7 +88,7 @@ class LoginController extends BaseController
 		$user->name = $name;
 		$user->role = 'user';
 		$user->email = $email;
-		$user->password = $password;
+		$user->password = $this->security->hash($password);
 		$result = $user->save();
 
 
@@ -100,6 +100,12 @@ class LoginController extends BaseController
 			$output = implode(',', $output);
 			$this->flash->error($output);
 			$this->response->redirect('login/register');
+			return;
+		}
+
+		if (!mkdir('images/'.$user->id, 0777)) {
+		    $this->flash->error('Pogreska u kreiranju foldera');
+		    $this->response->redirect('login/register');
 			return;
 		}
 

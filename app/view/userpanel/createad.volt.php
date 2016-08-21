@@ -56,7 +56,7 @@
 
 
 <div class="container">
-    <form class="form-horizontal" method="post" action="<?php echo $this->url->get('userpanel/savead'); ?>">
+    <form class="form-horizontal" method="post" action="<?php echo $this->url->get('userpanel/savead'); ?>" enctype="multipart/form-data">
         <fieldset>
 
           <!-- Form Name -->

@@ -8,11 +8,11 @@
 	<!-- Example row of columns -->
 	<div class="row">
 		<div class="col-md-4">
-			<a href="#" <a href="#" class="btn btn-block btn-lg btn-warning"> Auto-Moto</a>			
+			<a href="{{ url('adlist/') }}" class="btn btn-block btn-lg btn-warning"> Auto-Moto</a>			
 		</div>
 		<div class="col-md-4">
 			
-			<a href="#" <a href="#" class="btn btn-block btn-lg btn-warning"> Nekretnine</a>
+			<a href="#" class="btn btn-block btn-lg btn-warning"> Nekretnine</a>
 			
 		</div>
 		<div class="col-md-4">

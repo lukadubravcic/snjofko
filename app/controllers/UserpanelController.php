@@ -5,6 +5,8 @@ use \Phalcon\Tag;
 class UserpanelController extends BaseController
 {
 
+	const FILE_PATH = 'images/'; // folder for storing user pictures
+
 	private $_AREAS = [
 				'Bjelogorsko-bilogorska',
 				'Brodsko-posavska',
@@ -71,11 +73,9 @@ class UserpanelController extends BaseController
 		$category = $this->request->getPost('category');
 		$location = $this->request->getPost('location');
 		$description = $this->request->getPost('description');
-		$picture = $this->request->getPost('picture');
 		$price = $this->request->getPost('price');
 		$user_id = $this->session->get('id');
-
-	
+		
 		
 		$ad = new Ad();
 		
@@ -84,7 +84,14 @@ class UserpanelController extends BaseController
 		$ad->category = $category;
 		$ad->location = $location;
 		$ad->description = $description;
-		$ad->picture = $picture;
+
+		// spremanje slike u folder i njezinog filepatha u odredeno polje
+
+		$baseLocation = self::FILE_PATH.$user_id.'/';
+		$file = new Phalcon\Http\Request\File($_FILES[picture]);		
+		$ad->picture = $baseLocation.$file->getName();		
+		$file->moveTo($baseLocation . $file->getName());		
+	
 		$ad->price = $price;		
 		
 		$result = $ad->save();

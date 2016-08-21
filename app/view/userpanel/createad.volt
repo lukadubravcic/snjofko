@@ -2,7 +2,7 @@
 
 {% block content %}
 <div class="container">
-    <form class="form-horizontal" method="post" action="{{ url('userpanel/savead') }}">
+    <form class="form-horizontal" method="post" action="{{ url('userpanel/savead') }}" enctype="multipart/form-data">
         <fieldset>
 
           <!-- Form Name -->
