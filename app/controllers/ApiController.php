@@ -40,6 +40,38 @@ class ApiController extends \Phalcon\Mvc\Controller
 
 	public function postAdAction()
 	{
+		$this->view->disable();
+		
+		$user_email = $this->request->getPost('user_mail');
+		$user_password = $this->request->getPost('user_password');
+		$ad_title = $this->request->getPost('ad_title');
+		$ad_category = $this->request->getPost('ad_category');
+		$ad_location = $this->request->getPost('ad_location');
+		$ad_description = $this->request->getPost('ad_description');
+		$ad_picture = $this->request->getPost('ad_picture');
+		$ad_price = $this->request->getPost('ad_price');
+
+		$user = User::findFirstByEmail($user_email);
+
+		if($user) {
+
+			if ($this->security->checkHash($user_password, $user->password)) {
+				
+				$ad = new Ad();
+
+				$ad->user_id = $user->id;
+				$ad->title = $ad_title;
+				$ad->category = $ad_category;
+				$ad->location = $ad_location;
+				$ad->description = $ad_description;
+
+				// $ad->picture =
+				$ad->price = $ad_price;
+				$ad->save();
+
+			}
+
+		}
 		
 	}
 

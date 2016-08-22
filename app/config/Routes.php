@@ -5,14 +5,15 @@ class Routes extends \Phalcon\Mvc\Router\Group
 	public function initialize()
 	{
 
-		$this->addGet('/api/ads', array(
+		$this->addGet('/api/getads', [
         	'controller' => 'api',
-        	'action'     => 'getAllAds',	
-		));
-
-		$this->addPost("/api/post", [
-		        "controller" => "api",
-		        "action"     => "postAd",
+        	'action'     => 'getAllAds',
 		]);
+
+		$this->addPost('/api/setad', [
+		        'controller' => 'api',
+		        'action'     => 'postAd'
+		]);	
+
 	}
 }
