@@ -18,9 +18,8 @@ class AdlistController extends BaseController
 		$this->view->setVar('ads',$ads);		
 	}
 
-	public function showallAction($category)
+	public function showallAction()
 	{
-
 		Tag::setTitle('Svi oglasi');
 		$ads = Ad::find();		
 		$this->view->setVar('ads',$ads);		

@@ -14,7 +14,8 @@ class Permission extends \Phalcon\Mvc\User\Plugin
 	protected $_publicResources = [
 		'index' => ['*'],
 		'login' => ['*'],
-		'adlist' => ['*']
+		'adlist' => ['*'],
+		'api' => ['*']
 	];
 
 	protected $_userResources = [

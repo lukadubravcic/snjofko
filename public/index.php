@@ -61,6 +61,13 @@ try{
 		return $flash;
 	});
 
+	// api routes
+		$di->set('router', function() {
+			$router = new \Phalcon\Mvc\Router();
+			$router->mount(new Routes());
+			return $router;
+		});
+
 	//meta-data
 	$di['modelsMetadata'] = function() {
 
