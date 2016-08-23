@@ -1,4 +1,4 @@
-<?php
+	<?php
 
 use \Phalcon\Tag;
 
@@ -47,7 +47,7 @@ class UserpanelController extends BaseController
 
 	public function indexAction()
 	{
-		Tag::setTitle('Login');
+		Tag::setTitle('Korisnički prostor');
 	}
 
 	public function signoutAction()
@@ -119,5 +119,22 @@ class UserpanelController extends BaseController
 		$this->view->setVar('ads',$ads);
 	}
 
-}
+	public function deleteAdAction()
+	{
+		$action = $this->request->getPost('submit');
+		$ad_id = $this->request->getPost('ad_id');
+		$ad = Ad::findFirst($ad_id);
 
+		if ($action == 'Brisanje'){			
+			$ad->delete();			
+		}
+
+		if ($this->session->get('role') == 'admin') {
+			$this->response->redirect('admin/');
+		}else{
+			$this->response->redirect('usepanel/');
+		}
+
+	}
+
+}

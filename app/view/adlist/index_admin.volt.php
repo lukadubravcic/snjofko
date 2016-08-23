@@ -21,15 +21,14 @@
 			<span class="icon-bar"></span>
 			<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="<?php echo $this->url->get('index'); ?>">Snjofko</a>
+			<a class="navbar-brand" href="<?php echo $this->url->get('admin/'); ?>">Snjofko</a>
 		</div>
 
 		<div class="navbar-collapse collapse">
 
 			<ul class="nav navbar-nav">
-				<li><a href="#">Korisnički profil</a></li>
-				<li><a href="<?php echo $this->url->get('userpanel/getusersads'); ?>">Vlastiti oglasi</a></li>
-				<li><a href="<?php echo $this->url->get('userpanel/createad'); ?>">Objavi oglas</a></li>
+				<li><a href="<?php echo $this->url->get('userpanel/getusersads'); ?>">Korisnici</a></li>
+				<li><a href="<?php echo $this->url->get('adlist/showall'); ?>">Oglasi</a></li>
 			</ul>
 
 			<div class="col-sm-3 col-md-3">
@@ -55,7 +54,7 @@
 <?php echo $this->flash->output(); ?>
 
 
-
+	
 
 	<div class="container">
 
@@ -67,17 +66,18 @@
 					<legend><?php echo $ad->title; ?></legend>	
 
 					<div class="col-md-6">
-						Kategorija: <?php echo $ad->category; ?> <br>
-						Lokacija: <?php echo $ad->location; ?> <br>
-						Opis oglasa: <?php echo $ad->description; ?> <br>
-						Cijena: <?php echo $ad->price; ?> HRK <br><br>
+						<input type="hidden" name="ad_title" value="<?php echo $ad->title; ?>"/>
+						Kategorija: <?php echo $ad->category; ?> <br> <input type="hidden" name="ad_category" value="<?php echo $ad->category; ?>"/>
+						Lokacija: <?php echo $ad->location; ?> <br> <input type="hidden" name="ad_id" value="<?php echo $ad->id; ?>"/>
+						Opis oglasa: <?php echo $ad->description; ?> <br> <input type="hidden" name="ad_location" value="<?php echo $ad->location; ?>"/>
+						Cijena: <?php echo $ad->price; ?> HRK <br><br> <input type="hidden" name="ad_price" value="<?php echo $ad->price; ?>"/>
 						<input type="hidden" name="ad_id" value="<?php echo $ad->id; ?>"/>
 						<?php if ($this->session->get('role') != 'guest') { ?>
 
 							<?php if ($this->session->get('id') == $ad->user_id || $this->session->get('role') == 'admin') { ?>
-								<div class="col-md-3">
+								<!-- <div class="col-md-3">
 									<input name="submit" id="change" class="btn btn-lg btn-primary btn-block btn-warning" type="submit" value="Izmjena"></input>
-								</div>
+								</div> -->
 								<div class="col-md-4">
 									<input name="submit" id="delete" class="btn btn-lg btn-primary btn-block btn-warning" type="submit" value="Brisanje"></input>
 								</div>

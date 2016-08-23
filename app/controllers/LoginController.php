@@ -16,6 +16,12 @@ class LoginController extends BaseController
 		$this->session->set('id', $user->id);
 		$this->session->set('role', $user->role);
 		$this->session->set('logged_in', 1);
+
+		if ($user->role == 'admin') {
+			$this->response->redirect("admin/index");
+			return;	
+		}
+		
 		$this->response->redirect("userpanel/index");
 	}
 

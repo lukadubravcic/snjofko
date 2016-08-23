@@ -30,11 +30,11 @@
 			</ul>
 
 			<div class="col-sm-3 col-md-3">
-				<form class="navbar-form" role="search">
+				<form class="navbar-form" method="post" action="{{ url('userpanel/deleteAd') }}">
 					<div class="input-group">
 						<input type="text" class="form-control" placeholder="Search" name="q">
 						<div class="input-group-btn">
-							<button class="btn btn-default" type="submit"><span>Go</span></button>
+							<input name="submit" class="btn btn-default" type="submit"><span>Go</span></input>
 						</div>
 					</div>
 				</form>

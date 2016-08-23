@@ -1,4 +1,4 @@
-{% extends "templates/base.volt" %}
+{% extends "templates/admin.volt" %}
 
 
 {% block head %}
@@ -17,10 +17,11 @@
 					<legend>{{ ad.title }}</legend>	
 
 					<div class="col-md-6">
-						Kategorija: {{ ad.category }} <br>
-						Lokacija: {{ ad.location }} <br>
-						Opis oglasa: {{ ad.description }} <br>
-						Cijena: {{ ad.price }} HRK <br><br>
+						<input type="hidden" name="ad_title" value="{{ ad.title }}"/>
+						Kategorija: {{ ad.category }} <br> <input type="hidden" name="ad_category" value="{{ ad.category }}"/>
+						Lokacija: {{ ad.location }} <br> <input type="hidden" name="ad_id" value="{{ ad.id }}"/>
+						Opis oglasa: {{ ad.description }} <br> <input type="hidden" name="ad_location" value="{{ ad.location }}"/>
+						Cijena: {{ ad.price }} HRK <br><br> <input type="hidden" name="ad_price" value="{{ ad.price }}"/>
 						<input type="hidden" name="ad_id" value="{{ ad.id }}"/>
 						{% if session.get('role') != 'guest' %}
 

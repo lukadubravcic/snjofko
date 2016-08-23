@@ -8,7 +8,6 @@ class IndexController extends BaseController
 	public function onConstruct()
 	{
 		parent::initialize();
-		// $this->session->set('logged_in', 0);
 	}
 
 	public function indexAction()

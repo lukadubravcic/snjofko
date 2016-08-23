@@ -34,6 +34,7 @@ class Permission extends \Phalcon\Mvc\User\Plugin
 		if(!$role)
 		{
 			$role = self::GUEST;
+			$this->session->set('role', $role);
 		}
 			
 		// Get the current controller/action from the dispatcher
@@ -49,11 +50,11 @@ class Permission extends \Phalcon\Mvc\User\Plugin
 		if($allowed != Acl::ALLOW)
 		{
 			$this->flash->error("UNAUTHORIZED ACCESS");
-			$this->response->redirect('index');
+			$this->response->redirect('index/');
 
 			// Stops the dispatcher at the current operation
 			return false;
-		}
+		}	
 	}
 
 

@@ -5,15 +5,9 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<?php echo $this->assets->outputCss('style'); ?>
+	<link rel="stylesheet" type="text/css" href="css/customnavbar.css">
 	<?php echo $this->assets->outputJs('js'); ?>
 	
-<style type="text/css">
-	.aParent div {
-  float: left;
-  clear: none; 
-}
-</style>
-
 
 </head>
 <body>
@@ -27,13 +21,15 @@
 			<span class="icon-bar"></span>
 			<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="<?php echo $this->url->get('index/'); ?>">Snjofko</a>
+			<a class="navbar-brand" href="<?php echo $this->url->get('index'); ?>">Snjofko</a>
 		</div>
 
 		<div class="navbar-collapse collapse">
 
 			<ul class="nav navbar-nav">
-				<li><a href="<?php echo $this->url->get('index/about'); ?>">O nama</a></li>				
+				<li><a href="#">Korisnički profil</a></li>
+				<li><a href="<?php echo $this->url->get('userpanel/getusersads'); ?>">Vlastiti oglasi</a></li>
+				<li><a href="<?php echo $this->url->get('userpanel/createad'); ?>">Objavi oglas</a></li>
 			</ul>
 
 			<div class="col-sm-3 col-md-3">
@@ -48,9 +44,7 @@
 			</div>
 			<div>
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="<?php echo $this->url->get('login/'); ?>">Prijava</a></li>
-					<li><a href="<?php echo $this->url->get('login/register'); ?>">Registracija</a></li>
-				
+					<li><a href="<?php echo $this->url->get('userpanel/signout'); ?>">Odjava</a></li>					
 				</ul>
 			</div>
 		</div>
@@ -62,11 +56,13 @@
 
 
 
+
 	<div class="container">
 
 		<?php foreach ($ads as $ad) { ?>
+		<?php if ($ad->deleted != 1) { ?>
 
-			<form class="form-horizontal" style="background-color:#d9d9d9">
+			<form class="form-horizontal" method="post" action="<?php echo $this->url->get('userpanel/deleteAd'); ?>" style="background-color:#d9d9d9">
 				<fieldset>
 					<legend><?php echo $ad->title; ?></legend>	
 
@@ -74,23 +70,38 @@
 						Kategorija: <?php echo $ad->category; ?> <br>
 						Lokacija: <?php echo $ad->location; ?> <br>
 						Opis oglasa: <?php echo $ad->description; ?> <br>
-						Cijena: <?php echo $ad->price; ?> HRK
+						Cijena: <?php echo $ad->price; ?> HRK <br><br>
+						<input type="hidden" name="ad_id" value="<?php echo $ad->id; ?>"/>
+						<?php if ($this->session->get('role') != 'guest') { ?>
+
+							<?php if ($this->session->get('id') == $ad->user_id || $this->session->get('role') == 'admin') { ?>
+								<div class="col-md-3">
+									<input name="submit" id="change" class="btn btn-lg btn-primary btn-block btn-warning" type="submit" value="Izmjena"></input>
+								</div>
+								<div class="col-md-4">
+									<input name="submit" id="delete" class="btn btn-lg btn-primary btn-block btn-warning" type="submit" value="Brisanje"></input>
+								</div>
+								<br>
+							<?php } ?>
+							
+						<?php } ?>
 						<br><br>
 					</div>
 
 					<div class="col-md-6">
 						<?php if ($ad->picture != null) { ?>
-						<img src="snjofko/public/image/15/chetbaker1.jpg" style="border:3px solid black;" height="200" alt="Slika">
+						<img src="<?php echo $ad->picture; ?>" style="border:3px solid black;" height="200" alt="Slika">
 						<?php } ?>
 						<br><br>
 					</div>
 				</fieldset>
 			</form>
 			<br>
-
+		<?php } ?>
 		<?php } ?>
 
 	</div>
+
 
 
 

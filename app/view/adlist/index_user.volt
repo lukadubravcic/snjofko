@@ -1,4 +1,4 @@
-{% extends "templates/base.volt" %}
+{% extends "templates/user_panel.volt" %}
 
 
 {% block head %}

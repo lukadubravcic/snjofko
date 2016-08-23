@@ -1,11 +1,11 @@
-{% extends "templates/base.volt" %}
+{% extends "templates/admin.volt" %}
 
 
 {% block head %}
 {% endblock %}
 
 {% block content %}
-	
+
 
 	<div class="container">
 

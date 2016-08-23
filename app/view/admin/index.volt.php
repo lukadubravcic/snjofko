@@ -5,6 +5,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<?php echo $this->assets->outputCss('style'); ?>
+	<link rel="stylesheet" type="text/css" href="css/customnavbar.css">
 	<?php echo $this->assets->outputJs('js'); ?>
 	
 
@@ -21,30 +22,29 @@
 			<span class="icon-bar"></span>
 			<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="<?php echo $this->url->get('index/'); ?>">Snjofko</a>
+			<a class="navbar-brand" href="<?php echo $this->url->get('admin/'); ?>">Snjofko</a>
 		</div>
 
 		<div class="navbar-collapse collapse">
 
 			<ul class="nav navbar-nav">
-				<li><a href="<?php echo $this->url->get('index/about'); ?>">O nama</a></li>				
+				<li><a href="<?php echo $this->url->get('admin/getUsers'); ?>">Korisnici</a></li>
+				<li><a href="<?php echo $this->url->get('adlist/showall'); ?>">Oglasi</a></li>
 			</ul>
 
 			<div class="col-sm-3 col-md-3">
-				<form class="navbar-form" method="post" action="<?php echo $this->url->get('nesto/nesto'); ?>">
+				<form class="navbar-form" role="search">
 					<div class="input-group">
 						<input type="text" class="form-control" placeholder="Search" name="q">
 						<div class="input-group-btn">
-							<input name="submit" class="btn btn-default" type="submit"><span>Go</span></input>
+							<button class="btn btn-default" type="submit"><span>Go</span></button>
 						</div>
 					</div>
 				</form>
 			</div>
 			<div>
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="<?php echo $this->url->get('login/'); ?>">Prijava</a></li>
-					<li><a href="<?php echo $this->url->get('login/register'); ?>">Registracija</a></li>
-				
+					<li><a href="<?php echo $this->url->get('userpanel/signout'); ?>">Odjava</a></li>					
 				</ul>
 			</div>
 		</div>
@@ -85,8 +85,7 @@
 		</div>
 		<div class="col-md-4">
 			
-			<a href="<?php echo $this->url->get('adlist/index/Sjekire'); ?>" class="btn btn-block btn-lg btn-warning">
-			Sjekire</a>
+			<a href="<?php echo $this->url->get('adlist/index/Sjekire'); ?>" class="btn btn-block btn-lg btn-warning">Sjekire</a>
 
 			
 		</div>

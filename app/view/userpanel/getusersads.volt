@@ -1,22 +1,17 @@
 {% extends "templates/user_panel.volt" %}
 
 {% block head %}
-<style type="text/css">
-	.aParent div {
-  float: left;
-  clear: none; 
-}
-</style>
-
 {% endblock %}
 
 {% block content %}
 
+
 	<div class="container">
 
 		{% for ad in ads %}
+		{% if ad.deleted != 1 %}
 
-			<form class="form-horizontal" style="background-color:#d9d9d9">
+			<form class="form-horizontal" method="post" action="{{ url('userpanel/deleteAd') }}" style="background-color:#d9d9d9">
 				<fieldset>
 					<legend>{{ ad.title }}</legend>	
 
@@ -24,7 +19,21 @@
 						Kategorija: {{ ad.category }} <br>
 						Lokacija: {{ ad.location }} <br>
 						Opis oglasa: {{ ad.description }} <br>
-						Cijena: {{ ad.price }} HRK
+						Cijena: {{ ad.price }} HRK <br><br>
+						<input type="hidden" name="ad_id" value="{{ ad.id }}"/>
+						{% if session.get('role') != 'guest' %}
+
+							{% if session.get('id') == ad.user_id or session.get('role') == 'admin' %}
+								<div class="col-md-3">
+									<input name="submit" id="change" class="btn btn-lg btn-primary btn-block btn-warning" type="submit" value="Izmjena"></input>
+								</div>
+								<div class="col-md-4">
+									<input name="submit" id="delete" class="btn btn-lg btn-primary btn-block btn-warning" type="submit" value="Brisanje"></input>
+								</div>
+								<br>
+							{% endif %}
+							
+						{% endif %}
 						<br><br>
 					</div>
 
@@ -37,9 +46,10 @@
 				</fieldset>
 			</form>
 			<br>
-
+		{% endif %}
 		{% endfor %}
 
 	</div>
 
-{% endblock %}
+
+{% endblock %}	
